@@ -3,8 +3,6 @@ namespace Domain.Entity;
 public class Anime
 {
     public Guid Id { get; set; }
-
-    
     
     public int? ShikimoriId { get; set; }  //for anime players kodic etc.
     public int?  MalId { get; set; }
@@ -20,6 +18,8 @@ public class Anime
     public string? ImageUrl { get; set; }
     public AnimeType Type { get; set; } 
     public int? Episodes { get; set; }
+    public int EpisodesAired { get; set; }
+    public DateTime? NextEpisodeAt { get; set; }
     public AnimeStatus Status { get; set; } 
     public double? Score { get; set; }
     public int? Year { get; set; }

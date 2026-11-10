@@ -2,31 +2,25 @@ namespace Domain.Entity;
 
 public class UserAnimeProgress
 {
-    
-        public Guid Id { get; set; }
+    public Guid Id { get; set; }
 
-        // Внешний ключ на Пользователя
-        public Guid UserId { get; set; }
-        public User User { get; set; } = null!;
+    public Guid UserId { get; set; }
+    public User User { get; set; } = null!;
 
-        // Внешний ключ на Аниме в локальной БД
-        public Guid AnimeId { get; set; }
-        public Anime Anime { get; set; } = null!;
+    public Guid AnimeId { get; set; }
+    public Anime Anime { get; set; } = null!;
 
-        // Быстрый доступ к MAL ID
-        public int MalId { get; set; }
+    public int ShikimoriId { get; set; }
 
-        // Состояние списка и оценки
-        public WatchingEnum Status { get; set; } = WatchingEnum.Planned;
-        public int EpisodesWatched { get; set; }
-        public int? UserScore { get; set; } // 1 - 10
-        public bool IsFavorite { get; set; }
+    public WatchingEnum Status { get; set; } = WatchingEnum.Planned;
+    public int EpisodesWatched { get; set; }
+    public int? UserScore { get; set; }
+    public bool IsFavorite { get; set; }
 
-        // Прогресс видеоплеера
-        public int? LastTranslationId { get; set; }   // ID выбранной озвучки (Kodik)
-        public double LastPlaybackPosition { get; set; } // Таймкод остановки (в секундах)
+    public int? LastTranslationId { get; set; }
+    public double LastPlaybackPosition { get; set; }
+    public double LastEpisodeDuration { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
-    
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 }

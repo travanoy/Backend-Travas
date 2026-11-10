@@ -1,0 +1,19 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+.idea/
+
+## Secrets & local config
+appsettings.Local.json
+secrets.json
+*.pfx
+
+## Uploaded files
+WebApplication1/wwwroot/uploads/
+
+## Logs
+logs/
+*.log
