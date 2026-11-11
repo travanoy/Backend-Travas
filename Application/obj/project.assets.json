@@ -171,11 +171,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\RiderProjects\\travas\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\user\\RiderProjects\\Travas\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\user\\RiderProjects\\travas\\Application\\Application.csproj",
+      "projectPath": "C:\\Users\\user\\RiderProjects\\Travas\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\RiderProjects\\travas\\Application\\obj\\",
+      "outputPath": "C:\\Users\\user\\RiderProjects\\Travas\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -197,8 +197,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\user\\RiderProjects\\travas\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\user\\RiderProjects\\travas\\Domain\\Domain.csproj"
+            "C:\\Users\\user\\RiderProjects\\Travas\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\user\\RiderProjects\\Travas\\Domain\\Domain.csproj"
             }
           }
         }

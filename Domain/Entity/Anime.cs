@@ -33,4 +33,5 @@ public class Anime
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
     
     public ICollection<UserAnimeProgress> UserProgresses { get; set; } = new List<UserAnimeProgress>();
+    public ICollection<Review> Reviews { get; set; } = new List<Review>();
 }

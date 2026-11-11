@@ -183,6 +183,41 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("RefreshTokens");
                 });
 
+            modelBuilder.Entity("Domain.Entity.Review", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AnimeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AnimeId");
+
+                    b.HasIndex("UserId", "AnimeId")
+                        .IsUnique();
+
+                    b.ToTable("Reviews");
+                });
+
             modelBuilder.Entity("Domain.Entity.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -313,6 +348,25 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Domain.Entity.Review", b =>
+                {
+                    b.HasOne("Domain.Entity.Anime", "Anime")
+                        .WithMany("Reviews")
+                        .HasForeignKey("AnimeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entity.User", "User")
+                        .WithMany("Reviews")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Anime");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Domain.Entity.UserAnimeProgress", b =>
                 {
                     b.HasOne("Domain.Entity.Anime", "Anime")
@@ -334,6 +388,8 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Domain.Entity.Anime", b =>
                 {
+                    b.Navigation("Reviews");
+
                     b.Navigation("UserProgresses");
                 });
 
@@ -342,6 +398,8 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("AnimeProgresses");
 
                     b.Navigation("RefreshTokens");
+
+                    b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
         }

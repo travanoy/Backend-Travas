@@ -13,6 +13,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<UserAnimeProgress> UserAnimeProgresses => Set<UserAnimeProgress>();
     public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
     public DbSet<EpisodeNotification> EpisodeNotifications => Set<EpisodeNotification>();
+    public DbSet<Review> Reviews => Set<Review>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -107,6 +108,23 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             builder.HasOne(notification => notification.Anime)
                 .WithMany()
                 .HasForeignKey(notification => notification.AnimeId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        modelBuilder.Entity<Review>(builder =>
+        {
+            builder.Property(review => review.Text).HasMaxLength(2000);
+            builder.HasIndex(review => new { review.UserId, review.AnimeId }).IsUnique();
+            builder.HasIndex(review => review.AnimeId);
+
+            builder.HasOne(review => review.User)
+                .WithMany(user => user.Reviews)
+                .HasForeignKey(review => review.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(review => review.Anime)
+                .WithMany(anime => anime.Reviews)
+                .HasForeignKey(review => review.AnimeId)
                 .OnDelete(DeleteBehavior.Cascade);
         });
     }

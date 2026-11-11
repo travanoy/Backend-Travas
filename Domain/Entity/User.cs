@@ -18,4 +18,5 @@ public class User
 
     public ICollection<UserAnimeProgress> AnimeProgresses { get; set; } = new List<UserAnimeProgress>();
     public ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
+    public ICollection<Review> Reviews { get; set; } = new List<Review>();
 }

@@ -32,6 +32,7 @@ public static class DependencyInjection
         services.AddScoped<IProgressRepository, ProgressRepository>();
         services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
         services.AddScoped<INotificationRepository, NotificationRepository>();
+        services.AddScoped<IReviewRepository, ReviewRepository>();
 
         services.AddScoped<IPasswordManager, PasswordManager>();
         services.AddScoped<ITokenGenerator, TokenGenerator>();
